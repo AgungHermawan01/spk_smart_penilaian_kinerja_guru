@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Auth;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -55,5 +57,15 @@ class User extends Authenticatable
         if(Auth::check()){
             return Auth::user()->role->nama_role;
         }
+    }
+
+    /**
+     * Get the guru associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function guru(): HasOne
+    {
+        return $this->hasOne(User::class, 'user_id');
     }
 }
