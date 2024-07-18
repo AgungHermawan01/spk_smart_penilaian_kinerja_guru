@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Guru;
 use App\Models\Role;
 
 class KelolaUserController extends Controller
@@ -15,6 +16,7 @@ class KelolaUserController extends Controller
     public function index()
     {
         $data['users'] = User::whereNot('id', 1)->get();
+        $data['guru'] = Guru::all();
         $data['roles'] = Role::whereNot('id', 1)->get();
         return view('admin.kelola_user.index')->with($data);
     }

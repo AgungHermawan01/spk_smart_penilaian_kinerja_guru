@@ -21,9 +21,12 @@
                     </thead>
                     <tbody>
                         @forelse ($users as $no => $user)
+                        @php
+                            $namaGuru = $guru->where('user_id', $user->id)->pluck('nama')->first();
+                        @endphp
                             <tr>
                                 <td>{{ $no + 1 }}</td>
-                                <td>{{ $user->guru->nama }}</td>
+                                <td>{{ $namaGuru }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role->nama_role }}</td>
                                 <td>
