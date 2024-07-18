@@ -32,19 +32,18 @@ class PenilaianController extends Controller
             'nilai' => 'required',
         ]);
         $nilai = $request->nilai;
-        $penilaian = new Penilaian();
         $subkriteria = $request->subkriteria_id;
         for ($i = 0; $i < count($nilai); $i++) {
             try {
-                $ada = Penilaian::where('guru_id', $id)->where('subkriteria_id', $subkriteria)->first();
+                $ada = Penilaian::where('guru_id', $id)->where('subkriteria_id', $subkriteria[$i])->first();
                 if ($ada == null) {
-                    $penilaian->create([
+                    Penilaian::create([
                         'guru_id' => $id,
                         'subkriteria_id' => $subkriteria[$i],
                         'nilai' => $nilai[$i],
                     ]);
-                } elseif ($ada->nilai != $nilai[$i]) {
-                    $penilaian->where('guru_id', $id)
+                } elseif ($ada !== null && $ada->nilai != $nilai[$i]) {
+                    Penilaian::where('guru_id', $id)
                         ->where('subkriteria_id', $subkriteria[$i])
                         ->update([
                             'nilai' => $nilai[$i],
