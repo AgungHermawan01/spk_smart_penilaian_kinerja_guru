@@ -36,7 +36,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" onclick="formConfirmation('Edit data guru?')"
+                <button type="button" onclick="formConfirmation('Perbarui data guru?')"
                     class="btn btn-primary">Simpan</button>
                 </form>
             </div>
@@ -48,7 +48,6 @@
     <script>
         async function getDataGuru(id) {
             document.getElementById('formEditGuru').reset();
-            var myModal = new bootstrap.Modal(document.getElementById('editGuru')).show();
             const url = `{{ url('dashboard/kelola_guru/${id}/edit') }}`;
             try {
                 const response = await fetch(url);

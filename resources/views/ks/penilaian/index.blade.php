@@ -1,16 +1,12 @@
 @extends('layouts.master')
 @section('menuTitle')
-    <h2>Data Guru SDN Sukamulya 1</h2>
+    <h2>Penilaian Guru SDN Sukamulya 1</h2>
     <hr/>
 @endsection
 @section('content')
 <div class="row">
     <!-- table section -->
     <div class="col-md-12">
-        <hr/>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahGuru">
-            Tambah
-        </button>
         <hr/>
         <div class="table_section padding_infor_info">
             <div class="table-responsive-sm">
@@ -20,8 +16,6 @@
                             <th>#</th>
                             <th>NIP</th>
                             <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Alamat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -31,21 +25,9 @@
                                 <td>{{ $no + 1 }}</td>
                                 <td>{{ $guru->nip }}</td>
                                 <td>{{ $guru->nama }}</td>
-                                <td>{{ $guru->jenis_kelamin }}</td>
-                                <td>{{ $guru->alamat }}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                            data-bs-target="#editGuru" onclick="getDataGuru('{{ $guru->id }}')">
-                                            Edit
-                                        </button>
-                                        <form action="{{ route('kelola_guru.destroy', $guru->user_id) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="button" class="btn btn-sm btn-danger"
-                                                onclick="formConfirmation('Hapus data {{ $guru->nama }}?')">Hapus</button>
-                                        </form>
+                                        <a href="{{ route('penilaian.store', $guru->id) }}" class="btn btn-sm btn-info">Nilai</a>
                                     </div>
                                 </td>
                             </tr>
@@ -60,6 +42,4 @@
     </div>
 </div>
 <!-- Modal -->
-@include('admin.kelola_guru.tambah')
-@include('admin.kelola_guru.edit')
 @stop

@@ -24,6 +24,7 @@
               <span class="hide-menu">Dashboard</span>
             </a>
           </li>
+          @can('admin')
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Data Master</span>
@@ -45,19 +46,21 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('kelola_subkriteria.index') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-file-description"></i>
               </span>
               <span class="hide-menu">Data Sub Kriteria</span>
             </a>
           </li>
+          @endcan
+          @can('kepala_sekolah')
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Proses Data</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('penilaian.index') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-login"></i>
               </span>
@@ -80,18 +83,21 @@
               <span class="hide-menu">Hasil Akhir</span>
             </a>
           </li>
+          @endcan
+          @can('admin')
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Pengaturan</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('kelola_user.index') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-user"></i>
               </span>
               <span class="hide-menu">Data User</span>
             </a>
           </li>
+          @endcan
         </ul>
       </nav>
       <!-- End Sidebar navigation -->

@@ -39,11 +39,11 @@ class KelolaGuruController extends Controller
                 'password' => Hash::make(12345678),
                 'role_id' => 2
             ]);
-            $userId = User::latest()->pluck('id')->first();
+            $userId = User::latest('id')->pluck('id')->first();
             $data['user_id'] = $userId;
             Guru::create($data);
         } catch (\Throwable $th) {
-            // dd($th->getMessage());
+            dd($th->getMessage());
             return redirect()->back()->withErrors('Aksi gagal!')->withInput();
         }
         return redirect()->back()->with('success','Aksi berhasil!')->withInput();
@@ -84,7 +84,7 @@ class KelolaGuruController extends Controller
     public function destroy(string $id)
     {
         try {
-            Guru::where('id', $id)->delete();
+            User::where('id', $id)->delete();
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors('Aksi Gagal!')->withInput();
         }

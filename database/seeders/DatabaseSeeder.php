@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             RoleSeeder::class,
             KriteriaSeeder::class,
+            SubkriteriaSeeder::class,
+            BobotSubkriteriaSeeder::class,
+            GuruSeeder::class,
+            KsSeeder::class,
         ]);
 
         Schema::enableForeignKeyConstraints();
