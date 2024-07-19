@@ -14,6 +14,7 @@
 <script>
     $(document).ready(function() {
         $('#dataTableWithExport').DataTable({
+            ordering: false,
             dom: 'Bfrtip',
             buttons: [{
                 extend: 'collection',

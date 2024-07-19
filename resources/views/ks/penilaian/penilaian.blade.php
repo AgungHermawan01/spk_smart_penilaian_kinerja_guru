@@ -42,6 +42,7 @@
                                             <input type="number" class="form-control" name="nilai[]"
                                                 value="{{ $penilaian }}" id="">
                                             <input type="hidden" readonly name="subkriteria_id[]" value="{{ $subkriteria->id }}" id="">
+                                            <input type="hidden" readonly name="kriteria_id[]" value="{{ $subkriteria->kriteria->id }}" id="">
                                         </td>
                                     </tr>
                                 @empty

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\KelolaSubkriteriaController;
 use App\Http\Controllers\Admin\KelolaBobotSubkriteriaController;
 use App\Http\Controllers\Admin\KelolaUserController;
 use App\Http\Controllers\KS\PenilaianController;
+use App\Http\Controllers\KS\PerankinganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/penilaian', 'index')->name('penilaian.index');
                 Route::get('/penilaian/{id}', 'penilaian')->name('penilaian.penilaian');
                 Route::post('/penilaian/{id}', 'store')->name('penilaian.store');
+            });
+            Route::controller(PerankinganController::class)->group(function () {
+                Route::get('/nilai_rata_rata', 'nilaiRataRata')->name('perankingan.nilaiRataRata');
+                Route::get('/nilai_utility', 'nilaiUtility')->name('perankingan.nilaiUtility');
+                Route::get('/nilai_akhir', 'nilaiAkhir')->name('perankingan.nilaiAkhir');
             });
         });
         Route::controller(ProfileController::class)->group(function () {

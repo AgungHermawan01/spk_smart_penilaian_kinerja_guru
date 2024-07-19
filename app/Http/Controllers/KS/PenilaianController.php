@@ -33,24 +33,13 @@ class PenilaianController extends Controller
         ]);
         $nilai = $request->nilai;
         $subkriteria = $request->subkriteria_id;
+        $kriteria = $request->kriteria_id;
         for ($i = 0; $i < count($nilai); $i++) {
+            $penilaian = new Penilaian;
             try {
-                $ada = Penilaian::where('guru_id', $id)->where('subkriteria_id', $subkriteria[$i])->first();
-                if ($ada == null) {
-                    Penilaian::create([
-                        'guru_id' => $id,
-                        'subkriteria_id' => $subkriteria[$i],
-                        'nilai' => $nilai[$i],
-                    ]);
-                } elseif ($ada !== null && $ada->nilai != $nilai[$i]) {
-                    Penilaian::where('guru_id', $id)
-                        ->where('subkriteria_id', $subkriteria[$i])
-                        ->update([
-                            'nilai' => $nilai[$i],
-                        ]);
-                }
+                $penilaian->storeNilai($id, $subkriteria[$i], $kriteria[$i], $nilai[$i]);
             } catch (\Throwable $th) {
-                dd($th->getMessage());
+                // dd($th->getMessage());
                 return redirect()->back()->withErrors('Aksi gagal!')->withInput();
             }
         }

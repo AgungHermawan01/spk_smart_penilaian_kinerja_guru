@@ -67,20 +67,32 @@
               <span class="hide-menu">Penilaian Guru</span>
             </a>
           </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Perankingan</span>
+          </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('perankingan.nilaiRataRata') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-user-plus"></i>
               </span>
-              <span class="hide-menu">Perankingan</span>
+              <span class="hide-menu">Nilai Rata Rata</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('perankingan.nilaiUtility') }}" aria-expanded="false">
+              <span>
+                <i class="ti ti-user"></i>
+              </span>
+              <span class="hide-menu">Nilai Utility</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('perankingan.nilaiAkhir') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-mood-happy"></i>
               </span>
-              <span class="hide-menu">Hasil Akhir</span>
+              <span class="hide-menu">Nilai Akhir</span>
             </a>
           </li>
           @endcan
