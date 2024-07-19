@@ -24,6 +24,16 @@
               <span class="hide-menu">Dashboard</span>
             </a>
           </li>
+          @can('guru')
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('lihatKinerja') }}" aria-expanded="false">
+              <span>
+                <i class="ti ti-mood-happy"></i>
+              </span>
+              <span class="hide-menu">Lihat Nilai Kinerja</span>
+            </a>
+          </li>
+          @endcan
           @can('admin')
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>

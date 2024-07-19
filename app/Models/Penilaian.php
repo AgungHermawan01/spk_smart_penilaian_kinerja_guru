@@ -232,4 +232,11 @@ class Penilaian extends Model
 
         return $dump;
     }
+
+    protected function nilaiAkhirGuru($guru)
+    {
+        $data = $this->nilaiAkhir();
+        $final = $data[$guru];
+        return $final;
+    }
 }

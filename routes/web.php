@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\KelolaBobotSubkriteriaController;
 use App\Http\Controllers\Admin\KelolaUserController;
 use App\Http\Controllers\KS\PenilaianController;
 use App\Http\Controllers\KS\PerankinganController;
+use App\Http\Controllers\Guru\LihatKinerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/nilai_rata_rata', 'nilaiRataRata')->name('perankingan.nilaiRataRata');
                 Route::get('/nilai_utility', 'nilaiUtility')->name('perankingan.nilaiUtility');
                 Route::get('/nilai_akhir', 'nilaiAkhir')->name('perankingan.nilaiAkhir');
+            });
+        });
+        Route::middleware('role:guru')->group(function () {
+            Route::controller(LihatKinerjaController::class)->group(function () {
+                Route::get('/lihat_kinerja', 'lihatKinerja')->name('lihatKinerja');
             });
         });
         Route::controller(ProfileController::class)->group(function () {
