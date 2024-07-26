@@ -13,7 +13,7 @@ class Penilaian extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nilai', 'subkriteria_id', 'guru_id'];
+    protected $fillable = ['nilai', 'subkriteria_id', 'guru_id', 'kriteria_id'];
 
     /**
      * Get the guru that owns the Penilaian
@@ -91,7 +91,7 @@ class Penilaian extends Model
 
         $hasil = $jumlahArr / $banyakArr;
 
-        return $hasil;
+        return floatval(number_format($hasil,10,'.'));
     }
 
     protected function nilaiRataRataKriteriaByKriteria()

@@ -10,8 +10,8 @@
             <div class="table_section padding_infor_info">
                 <div class="table-responsive-sm">
                     <table class="table table-stripped" id="dataTableWithExport">
-                        <thead>
-                            <tr>
+                        <thead >
+                            <tr class="text-center">
                                 <th>#</th>
                                 <th>Nama Guru</th>
                                 @foreach ($kriterias as $kriteria)

@@ -3,7 +3,7 @@
     <div>
       <div class="brand-logo d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard') }}" class="text-nowrap logo-img mt-2">
-          <img src="{{ asset('assets/images/logos/user.png') }}" width="50" alt="" />
+          <img src="{{ asset('assets/images/logos/login.png') }}" width="100" alt="" />
         </a>
         <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
           <i class="ti ti-x fs-8"></i>
@@ -25,6 +25,14 @@
             </a>
           </li>
           @can('guru')
+           <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('inputPersyaratan') }}" aria-expanded="false">
+              <span>
+                <i class="ti ti-file"></i>
+              </span>
+              <span class="hide-menu">Input Persyaratan</span>
+            </a>
+          </li>
           <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('lihatKinerja') }}" aria-expanded="false">
               <span>

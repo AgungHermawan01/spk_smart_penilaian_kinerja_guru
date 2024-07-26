@@ -10,7 +10,7 @@ class Guru extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'jenis_kelamin', 'nip', 'alamat', 'user_id'];
+    protected $fillable = ['nama', 'jenis_kelamin', 'nip', 'alamat', 'user_id', 'url_persyaratan'];
 
     /**
      * Get the user that owns the Guru

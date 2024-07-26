@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\KelolaUserController;
 use App\Http\Controllers\KS\PenilaianController;
 use App\Http\Controllers\KS\PerankinganController;
 use App\Http\Controllers\Guru\LihatKinerjaController;
+use App\Http\Controllers\Guru\InputPersyaratanJabatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,10 @@ Route::middleware('auth')->group(function () {
         Route::middleware('role:guru')->group(function () {
             Route::controller(LihatKinerjaController::class)->group(function () {
                 Route::get('/lihat_kinerja', 'lihatKinerja')->name('lihatKinerja');
+            });
+            Route::controller(InputPersyaratanJabatanController::class)->group(function () {
+                Route::get('/input_persyaratan', 'inputPersyaratan')->name('inputPersyaratan');
+                Route::post('/input_persyaratan/store', 'inputPersyaratanStore')->name('inputPersyaratanStore');
             });
         });
         Route::controller(ProfileController::class)->group(function () {
